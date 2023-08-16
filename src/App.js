@@ -22,14 +22,14 @@ function App() {
     if (dataword.ok) {
     const responst = await dataword.json();
     setSample(inputValue);
-    responst.map((value) => {
+    const newTextArray = responst.map((value) => {
       value.phonetics.map((e) => {
-        if(e.text){
+        if (e.text) {
           setText(e.text);
-          
         }
-      })
-    })
+      });
+      return value; 
+    });
     responst.forEach((entry) => {
       entry.meanings.forEach((meaning) => {
         meaning.definitions.forEach((definition) => {
