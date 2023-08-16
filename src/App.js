@@ -22,15 +22,15 @@ function App() {
     if (dataword.ok) {
     const responst = await dataword.json();
     setSample(inputValue);
-    const newTextArray = responst.map((value) => {
-      value.phonetics.map((e) => {
+    responst.forEach((value) => {
+      value.phonetics.forEach((e) => {
         if (e.text) {
           setText(e.text);
         }
       });
-      return value; 
+    
     });
-    newTextArray.forEach((entry) => {
+    responst.forEach((entry) => {
       entry.meanings.forEach((meaning) => {
         meaning.definitions.forEach((definition) => {
           if (definition.definition) {
@@ -44,7 +44,7 @@ function App() {
     });
     setDisplay('block');
   } else {
-    // Word not found in the dictionary
+   
     setSample('Word not found');
     setText('');
     setdefination('');
