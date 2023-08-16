@@ -30,7 +30,7 @@ function App() {
       });
       return value; 
     });
-    responst.forEach((entry) => {
+    newTextArray.forEach((entry) => {
       entry.meanings.forEach((meaning) => {
         meaning.definitions.forEach((definition) => {
           if (definition.definition) {
